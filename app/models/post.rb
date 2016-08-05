@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
-  validate :is_title_case 
-  before_validation :make_title_case 
+  validate :is_title_case
+  before_validation :make_title_case
   belongs_to :author
 
   private
@@ -15,4 +15,9 @@ class Post < ActiveRecord::Base
   def make_title_case
     self.title = self.title.titlecase
   end
+
+  def last_updated(post)
+    post.updated_at.strftime("Last updated %A, %b %e, at %l:%M %p")
+  end
+
 end
