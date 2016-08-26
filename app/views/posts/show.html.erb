@@ -1,2 +1,9 @@
-<h1><%= @post.title %></h1>
+<h1><% title @author.name %></h1>
+<p><%= last_updated @post %></p>
 <p><%= @post.description %></p>
+
+<h1><%= @author.name %></h1>
+<p>Posts:</p>
+<% @author.posts.each do |post| %>
+  <div><%= post.title %> - <%= last_updated post %></div>
+<% end %>
